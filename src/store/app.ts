@@ -7,14 +7,14 @@ class AppStore {
   @action
   setValue(value: string) {
     this.value = value;
-    console.log('++++++++++++++++++++++++++++++++++++++++++')
+    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
     console.log('setValue')
     console.log('value: ' + value);
     console.log('typeof this.setValue: ' + typeof this.setValue);
     console.log('this.value: ' + this.value);
     console.log('this.result: ' + this.result);
     console.log('typeof this.calculationNumberFibonacci: ' + typeof this.calculationNumberFibonacci)
-    console.log('------------------------------------------')
+    console.log('------------------------------------------')*/
   }
 
   @action
@@ -46,7 +46,6 @@ class AppStore {
       };
       const result = String(prev)
       this.setResult(result);
-      console.log(result)
       setTimeout(this.clearResult, 2000) ;
     } else {
       this.errorResult('enter the number and try again');
