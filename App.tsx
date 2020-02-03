@@ -1,18 +1,25 @@
 import React from 'react';
-import { StyleSheet, View, TextInput, Button, Text } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import { observer } from 'mobx-react';
 import { appStore } from 'store/app';
 import { FibForm } from 'components/FibForm';
 import { Result } from 'components/Result';
+import { ResultItem } from 'components/ResultItem';
 
 @observer
 class App extends React.Component<{}> {
   render() {
-    const { result } = appStore;
+    const { toggleView, resultList } = appStore;
 
     return (
       <View style={styles.container}>
-        { result ? <Result /> : <FibForm /> }
+        { toggleView ? <Result /> : <FibForm /> }
+
+        <FlatList
+          keyExtractor={item => item.id.toString()}
+          data={resultList}
+          renderItem={({ item }) => <ResultItem result={item} />}
+        />
       </View>
     );
   }

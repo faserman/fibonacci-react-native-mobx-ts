@@ -1,19 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { observer } from 'mobx-react';
 import { appStore } from 'store/app';
 
-export const Result = observer(props => {
-  const { result, addResultInList /*clearResult*/ } = appStore;
+export const ResultItem = observer(props => {
+  //const { result, value } = appStore;
 
   return(
-    <TouchableOpacity
-      onPress={() => addResultInList()/*clearResult(false)*/}
-    >
-      <View style={styles.result}>
-        <Text style={styles.text}>{ result }</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.result}>
+      <Text style={styles.text}>{ props.result.serialNumber }: { props.result.result }</Text>
+    </View>
   )
 });
 

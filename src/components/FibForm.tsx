@@ -21,7 +21,7 @@ export const FibForm = observer(props => {
         placeholder='Enter the serial number...'
       />
       <Button
-        title='...'
+        title='...........'
         //style={styles.button}
         onPress={ calculationNumberFibonacci }
       />
