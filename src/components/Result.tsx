@@ -4,11 +4,11 @@ import { observer } from 'mobx-react';
 import { appStore } from 'store/app';
 
 export const Result = observer(props => {
-  const { result, addResultInList /*clearResult*/ } = appStore;
+  const { result, addResultInList } = appStore;
 
   return(
     <TouchableOpacity
-      onPress={() => addResultInList()/*clearResult(false)*/}
+      onPress={() => addResultInList()}
     >
       <View style={styles.result}>
         <Text style={styles.text}>{ result }</Text>
@@ -19,7 +19,9 @@ export const Result = observer(props => {
 
 const styles = StyleSheet.create({
   result: {
-    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+    /*flexDirection: 'row',*/
     alignItems: 'center',
     padding: 15,
     borderWidth: 1,

@@ -1,15 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react';
 import { appStore } from 'store/app';
 
 export const ResultItem = observer(props => {
-  //const { result, value } = appStore;
+  const { deleteResult } = appStore;
 
   return(
-    <View style={styles.result}>
-      <Text style={styles.text}>{ props.result.serialNumber }: { props.result.result }</Text>
-    </View>
+    <TouchableOpacity
+      onLongPress={() => deleteResult(props.result.id)}
+    >
+      <View style={styles.result}>
+        <Text style={styles.text}>{ props.result.serialNumber }: { props.result.result }</Text>
+      </View>
+    </TouchableOpacity>
   )
 });
 

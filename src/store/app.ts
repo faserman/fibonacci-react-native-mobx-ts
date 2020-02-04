@@ -1,4 +1,4 @@
-import { observable, action} from 'mobx';
+import { observable, action, IReactionDisposer, reaction} from 'mobx';
 import { ResultList } from 'models/resultList';
 
 class AppStore {
@@ -6,18 +6,34 @@ class AppStore {
   @observable result = '';
   @observable toggleView = false;
   @observable resultList: ResultList[] = [];
+  private disposer: IReactionDisposer | undefined;
+  private timerId: number | undefined;
+
+  constructor() {
+    this.disposer = reaction(
+      () => this.result,
+      result => {
+        clearTimeout(this.timerId);
+        if (result.length > 0) {
+          this.timerId = setTimeout(
+            this.addResultInList, 2000
+          );
+        }
+      }
+    );
+  }
 
   @action
   setValue(value: string) {
     this.value = value;
-    console.log('++++++++++++++++++++++++++++++++++++++++++')
+    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
     console.log('setValue#')
     console.log('value: ' + value);
     console.log('typeof this.setValue: ' + typeof this.setValue);
     console.log('this.value: ' + this.value);
     console.log('this.result: ' + this.result);
     console.log('typeof this.calculationNumberFibonacci: ' + typeof this.calculationNumberFibonacci)
-    console.log('------------------------------------------')
+    console.log('------------------------------------------')*/
   }
 
   @action
@@ -25,10 +41,10 @@ class AppStore {
     this.result = result;
   }
 
-  @action
+  /*@action
   errorResult(err: string) {
     this.result = err;
-  }
+  }*/
 
   @action
   setResultList(resultList: ResultList[]) {
@@ -39,7 +55,7 @@ class AppStore {
   addResultInList(){
     let resultList = this.resultList;
 
-    resultList.push({
+    resultList.unshift({
       id: Date.now().toString(),
       serialNumber: this.value,
       result: this.result,
@@ -48,21 +64,27 @@ class AppStore {
     this.setResultList(resultList);
     this.clearResult();
     this.setToggleView(false);
-    console.log('++++++++++++++++++++++++++++++++++++++++++')
+    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
     console.log('addResultInList#')
     console.log('this.value: ' + this.value);
     console.log('this.result: ' + this.result);
     console.log('typeof this.setValue: ' + typeof this.setValue);
     console.log('typeof this.addResultInList: ' + typeof this.addResultInList)
-    console.log('------------------------------------------')
+    console.log('------------------------------------------')*/
   }
 
   @action.bound
+  deleteResult(id: string) {
+    this.setResultList(this.resultList.filter(item => item.id !== id));
+  }
+
+  @action
   clearResult() {
     this.value = '';
+    this.result = '';
   }
 
-  @action.bound
+  @action
   setToggleView(j: boolean) {
     this.toggleView = j;
   }
@@ -81,16 +103,21 @@ class AppStore {
       this.setResult(result);
       this.setToggleView(true);
     } else {
-      this.errorResult('enter the number and try again');
+      null;
     };
-    console.log('++++++++++++++++++++++++++++++++++++++++++')
+    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
     console.log('calculationNumberFibonacci#')
     console.log('this.value: ' + this.value);
     console.log('this.result: ' + this.result);
     console.log('typeof this.setValue: ' + typeof this.setValue);
     console.log('typeof this.calculationNumberFibonacci: ' + typeof this.calculationNumberFibonacci)
-    console.log('------------------------------------------')
+    console.log('------------------------------------------')*/
   }
+
+  public dispose(): void {
+    this.disposer && this.disposer();
+  }
+
 }
 
 export const appStore = new AppStore();
