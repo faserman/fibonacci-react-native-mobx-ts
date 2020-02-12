@@ -5,7 +5,9 @@ export const Navbar = () => {
 
   return(
     <View style={styles.navbar }>
-      <Text style={ styles.text }>&#966;</Text>
+      <Text style={ styles.text }>
+        <Text style={styles.fi}>&#966;</Text>bonacci
+      </Text>
     </View>
   )
 }
@@ -14,11 +16,16 @@ const styles = StyleSheet.create({
   navbar: {
     height: 70,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#1E1E1E',
   },
   text: {
     color: '#fff',
-    fontSize: 40,
+    fontSize: 25,
+    marginTop: 20
   },
+  fi: {
+    color: '#49B8EC',
+    fontSize: 30,
+  }
 })

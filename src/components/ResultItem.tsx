@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 15,
     borderWidth: 1,
-    borderColor: '#eee',
+    borderColor: '#49B8EC',
     borderRadius: 5,
     marginBottom: 5,
     backgroundColor: '#333333'
   },
   textResult: {
-    color: '#fff'
+    color: '#fff',
+    fontSize: 17,
   }
 })

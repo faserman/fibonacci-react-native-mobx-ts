@@ -24,7 +24,7 @@ export const FibForm = observer(props => {
         style={styles.button}
         onPress={ calculationNumberFibonacci }
       >
-        <Text> calculate the fibonacci number </Text>
+        <Text style={styles.text}> calculate the fibonacci number </Text>
       </TouchableOpacity>
     </View>
   )
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   input: {
-    width: '90%',
-    padding: 5,
+    width: '98%',
+    padding: 10,
     borderStyle: 'solid',
     borderBottomWidth: 2,
     borderBottomColor: '#49B8EC',
@@ -49,8 +49,12 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     backgroundColor: '#519ABA',
-    padding: 10,
+    padding: 15,
     marginTop: 3,
     borderRadius: 4,
+  },
+  text: {
+    color: '#FFFFFF',
+    fontSize: 17,
   }
 })

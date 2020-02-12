@@ -9,8 +9,9 @@ export const Result = observer(props => {
   return(
     <TouchableOpacity
       onPress={() => addResultInList()}
+      style={styles.result}
     >
-      <View style={styles.result}>
+      <View>
         <Text style={styles.text}>{ result }</Text>
       </View>
     </TouchableOpacity>
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 15,
+    padding: 40,
     borderWidth: 1,
     borderColor: '#eee',
     borderRadius: 5,
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333'
   },
   text: {
-    color: '#fff'
+    color: '#fff',
+    fontSize: 30
   }
 })

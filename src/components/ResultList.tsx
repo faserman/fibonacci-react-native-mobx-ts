@@ -21,6 +21,6 @@ export const ResultList = observer(props => {
 
 const styles = StyleSheet.create({
   list: {
-    height: '100%',
+    height: '79%',
   }
 })

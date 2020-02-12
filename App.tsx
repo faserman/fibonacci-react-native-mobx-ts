@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     backgroundColor: '#252526',
-  }
+  },
 });
 
 export default App;
