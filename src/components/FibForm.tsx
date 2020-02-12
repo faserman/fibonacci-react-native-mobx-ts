@@ -32,11 +32,8 @@ export const FibForm = observer(props => {
 
 const styles = StyleSheet.create({
   form: {
-    /*flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',*/
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     marginBottom: 5,
   },
@@ -46,12 +43,14 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderBottomWidth: 2,
     borderBottomColor: '#49B8EC',
+    borderRadius: 5,
     color: '#F1F3F4',
   },
   button: {
     alignItems: 'center',
     backgroundColor: '#519ABA',
     padding: 10,
-    marginTop: 3
+    marginTop: 3,
+    borderRadius: 4,
   }
 })

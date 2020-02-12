@@ -1,4 +1,4 @@
-export interface ResultList {
+export interface Result {
   id: string;
   serialNumber: string;
   result: string;

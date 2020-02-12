@@ -19,9 +19,8 @@ export const Result = observer(props => {
 
 const styles = StyleSheet.create({
   result: {
-    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    /*flexDirection: 'row',*/
     alignItems: 'center',
     padding: 15,
     borderWidth: 1,

@@ -1,11 +1,11 @@
 import { observable, action, IReactionDisposer, reaction} from 'mobx';
-import { ResultList } from 'models/resultList';
+import { Result } from 'models/app';
 
 class AppStore {
   @observable value = '';
   @observable result = '';
   @observable toggleView = false;
-  @observable resultList: ResultList[] = [];
+  @observable resultList: Result[] = [];
   private disposer: IReactionDisposer | undefined;
   private timerId: number | undefined;
 
@@ -47,7 +47,7 @@ class AppStore {
   }*/
 
   @action
-  setResultList(resultList: ResultList[]) {
+  setResultList(resultList: Result[]) {
     this.resultList = resultList;
   }
 
@@ -85,8 +85,8 @@ class AppStore {
   }
 
   @action
-  setToggleView(j: boolean) {
-    this.toggleView = j;
+  setToggleView(mode: boolean) {
+    this.toggleView = mode;
   }
 
   @action.bound

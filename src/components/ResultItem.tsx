@@ -11,7 +11,7 @@ export const ResultItem = observer(props => {
       onLongPress={() => deleteResult(props.result.id)}
     >
       <View style={styles.result}>
-        <Text style={styles.text}>{ props.result.serialNumber }: { props.result.result }</Text>
+        <Text style={styles.textResult}>{ props.result.serialNumber } => { props.result.result }</Text>
       </View>
     </TouchableOpacity>
   )
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     backgroundColor: '#333333'
   },
-  text: {
+  textResult: {
     color: '#fff'
   }
 })

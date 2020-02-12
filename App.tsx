@@ -1,48 +1,43 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { observer } from 'mobx-react';
 import { appStore } from 'store/app';
 import { Navbar } from 'components/Navbar';
 import { FibForm } from 'components/FibForm';
 import { Result } from 'components/Result';
-import { ResultItem } from 'components/ResultItem';
+import { ResultList } from 'components/ResultList';
 
 @observer
 class App extends React.Component<{}> {
   render() {
-    const { toggleView, resultList } = appStore;
+    
+    const { toggleView } = appStore;
 
     return (
-      <View>
+      <View style={styles.app}>
         <Navbar />
-          <View style={styles.container}>
-            { toggleView ? <Result /> :
-              <View>
-                <FibForm />
-                <FlatList
-                  keyExtractor={item => item.id.toString()}
-                  data={resultList}
-                  renderItem={({ item }) => <ResultItem result={item} />}
-                />
-              </View>
-            }
-          </View>
+        <View style={styles.container}>
+          { toggleView ? <Result /> :
+            <View>
+              <FibForm />
+              <ResultList />
+            </View>
+          }
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    /*flex: 1,
-    backgroundColor: '#1E1E1E',
-    alignItems: 'center',
-    justifyContent: 'center',*/
-    height: '100%',
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+  app: {
+    flex: 1,
     backgroundColor: '#252526',
   },
+  container: {
+    height: '100%',
+    backgroundColor: '#252526',
+  }
 });
 
 export default App;
