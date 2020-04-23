@@ -26,14 +26,6 @@ class AppStore {
   @action
   setValue(value: string) {
     this.value = value;
-    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
-    console.log('setValue#')
-    console.log('value: ' + value);
-    console.log('typeof this.setValue: ' + typeof this.setValue);
-    console.log('this.value: ' + this.value);
-    console.log('this.result: ' + this.result);
-    console.log('typeof this.calculationNumberFibonacci: ' + typeof this.calculationNumberFibonacci)
-    console.log('------------------------------------------')*/
   }
 
   @action
@@ -41,10 +33,6 @@ class AppStore {
     this.result = result;
   }
 
-  /*@action
-  errorResult(err: string) {
-    this.result = err;
-  }*/
 
   @action
   setResultList(resultList: Result[]) {
@@ -64,13 +52,6 @@ class AppStore {
     this.setResultList(resultList);
     this.clearResult();
     this.setToggleView(false);
-    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
-    console.log('addResultInList#')
-    console.log('this.value: ' + this.value);
-    console.log('this.result: ' + this.result);
-    console.log('typeof this.setValue: ' + typeof this.setValue);
-    console.log('typeof this.addResultInList: ' + typeof this.addResultInList)
-    console.log('------------------------------------------')*/
   }
 
   @action.bound
@@ -105,13 +86,6 @@ class AppStore {
     } else {
       null;
     };
-    /*console.log('++++++++++++++++++++++++++++++++++++++++++')
-    console.log('calculationNumberFibonacci#')
-    console.log('this.value: ' + this.value);
-    console.log('this.result: ' + this.result);
-    console.log('typeof this.setValue: ' + typeof this.setValue);
-    console.log('typeof this.calculationNumberFibonacci: ' + typeof this.calculationNumberFibonacci)
-    console.log('------------------------------------------')*/
   }
 
   public dispose(): void {
