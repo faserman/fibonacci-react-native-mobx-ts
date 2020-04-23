@@ -50,6 +50,15 @@
     </tr>
     <tr>
       <td align="center">
+        <a href="https://www.typescriptlang.org/index.html" rel="nofollow">TypeScript</a>
+      </td>
+      <td>
+        It is a strict syntactical superset of JavaScript and adds optional<br>
+        static typing to the language.
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
         <a href="https://mobx.js.org/README.html" rel="nofollow">MobX</a>
       </td>
       <td>
