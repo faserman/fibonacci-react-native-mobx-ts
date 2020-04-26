@@ -2,9 +2,7 @@
 <p>
   FibonacciApp is an application for determining the 
   <a href="https://simple.wikipedia.org/wiki/Fibonacci_number">number of fibonacci</a>
-   by its serial number 
-  <a href="https://reactnative.dev/" rel="nofollow">React native</a>
-  .
+   by its serial number.
 </p>
 <h1>Demo</h1>
 <p>
