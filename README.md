@@ -1,7 +1,7 @@
 <h1>Fibonacci</h1>
 <p>
   Fibonacci is an application for determining the 
-  <a href="https://simple.wikipedia.org/wiki/Fibonacci_number">number of fibonacci</a>
+  <a href="https://simple.wikipedia.org/wiki/Fibonacci_number">number of Fibonacci</a>
    by its serial number.
 </p>
 <h1>Demo</h1>
